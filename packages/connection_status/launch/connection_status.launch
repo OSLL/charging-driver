@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="veh" doc="Name of vehicle. ex: megaman"/>
+    <arg name="param_file_name" default="default" doc="Specify a param file. ex:default." />
+    <arg name="robot_type" default="$(env ROBOT_TYPE)"
+        doc="The type of the robot (e.g., duckiebot, watchtower, traffic_light, ...)"/>
+    <arg name="robot_configuration" default="$(env ROBOT_CONFIGURATION)"
+        doc="The configuration of the robot (e.g., DB19, DB20, WT18, ...)"/>
+    <arg name="node_name" value="connection_status"/>
+    <!-- ROS HTTP API: provides an HTTP API through which we can monitor the ROS network -->
+
+    <group ns="$(arg veh)">
+        <remap from="$(arg node_name)/connection_status" to="connection_status" />
+        <node pkg="connection_status" name="connection_status" type="connection_status.py" output="screen" required="true" />
+    </group>
+</launch>
