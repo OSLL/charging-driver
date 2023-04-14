@@ -14,9 +14,13 @@ SystemCmd-z6
 PyContracts3
 picamera==1.13
 
+# RPi packages
+RPi.GPIO
+
 # Package: ros_http_api
 flask
 flask-cors
 
 # this is for DTROS and buff_size input
 humanfriendly
+
