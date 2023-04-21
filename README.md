@@ -7,6 +7,8 @@ Status:
 Repository containing driver to check charging connection. It used for automatic charging process.
 
 ## How to launch manually
-To run docker container on the duckiebot, use the next commands: `$ docker -H <HOSTNAME>.local run --name charging_driver -v /dev/mem --privileged --network=host -dit --restart unless-stopped -e  ROBOT_TYPE=duckiebot docker.io/duckietown/charging-driver:automatic-charging-arm32v7`
+Clone this repository and build the project with next command: `$ dts devel build -f -H <autobot name>`
 
-If you want to see log info, use the next commands: `$ docker logs --tail 50 --follow --timestamps charging_driver`
+To run docker container on the duckiebot, use the next command: `$ docker -H <HOSTNAME>.local run --name charging_driver -v /dev/mem --privileged --network=host -dit --restart unless-stopped -e  ROBOT_TYPE=duckiebot docker.io/duckietown/charging-driver:automatic-charging-arm32v7`. Hostname is the name of the bot, for example "autobot03".
+
+If you want to see log info, connect to duckiebot via ssh and use the next command: `$ docker logs --tail 50 --follow --timestamps charging_driver`
